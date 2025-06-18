@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auto Tab Opener</title>
+  <script>
+    // Simulated .env config inside HTML
+    const CONFIG = {
+      OPEN_TAB: true,
+      TAB_COUNT: 5
+    };
+
+    window.onload = function() {
+      if (CONFIG.OPEN_TAB) {
+        const alreadyOpened = sessionStorage.getItem('alreadyOpened');
+        if (!alreadyOpened) {
+          for (let i = 0; i < CONFIG.TAB_COUNT; i++) {
+            window.open(window.location.href, '_blank');
+          }
+          sessionStorage.setItem('alreadyOpened', 'true');
+        }
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1>Welcome to My page now i will fuck your phone</h1>
+  <p>This page opens itself in 5 tabs on your first visit.</p>
+</body>
+</html>
